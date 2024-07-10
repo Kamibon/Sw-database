@@ -16,7 +16,7 @@ export async function loader({
 export default function Details() {
 
     const dati = useLoaderData<typeof loader>()
-    
+    console.log(dati)
 
   return (
     <div className='bg-gradient-to-br from-blue-800 to-red-700 h-full '>
@@ -27,11 +27,11 @@ export default function Details() {
      {/* {Object.keys(dati).map((el, i)=><li key={i}>{el}:</li>)} */}
      
      <div className=' font-bold text-3xl'>Nome : {dati.name}</div>
-     {/* <div className=' font-bold text-3xl'>Genere : {dati.gender}</div>
-     <div className=' font-bold text-3xl'>Anno di nascita : {dati.birth_year}</div>
-     <div className=' font-bold text-3xl'>Occhi : {dati.eye_color}</div>
-     <div className=' font-bold text-3xl'>{dati.gender === 'male'? 'Nato' : 'Nata'} a : {dati.homeworld}</div>
-     <div className=' font-bold text-3xl'>Capelli : {dati.hair_color}</div> */}
+      <div className=' font-bold text-3xl'>Produttore : {dati.manufacturer}</div>
+     <div className=' font-bold text-3xl'>Costo : {dati.cost_in_credits}</div>
+     <div className=' font-bold text-3xl'>Velocità massima: {dati.max_atmosphering_speed}</div>
+     <div className=' font-bold text-3xl'>Staff:{dati.crew}</div>
+     <div className=' font-bold text-3xl'>Tipo veicolo : {dati.vehicle_class}</div> 
      
      
      

@@ -21,11 +21,14 @@ export default function Details() {
 
   return (
     <div className='bg-gradient-to-br from-blue-800 to-red-700 h-full '>
+    
+    
+    <div className='m-2'>
      <h1 className=' font-extrabold text-3xl text-yellow-500'> {dati.title}</h1> 
      
 
     
-     {/* {Object.keys(dati).map((el, i)=><li key={i}>{el}:</li>)} */}
+    
      
      <div className=' font-bold text-3xl'>Titolo : {dati.title}</div>
     <div className=' font-bold text-3xl'>Episodio: {dati.episode_id}</div>
@@ -37,6 +40,7 @@ export default function Details() {
      
      
     { <Link className=" m-auto font-bold text-4xl hover:text-yellow-500" to='/categories/films'> Torna indietro</Link> }
+    </div>
     </div>
   )
 }

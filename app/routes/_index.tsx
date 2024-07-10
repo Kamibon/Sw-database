@@ -22,14 +22,17 @@ export default function Index() {
 
 
   return (
-    <div className="font-sans flex flex-col items-center bg-gradient-to-br from-blue-800 to-red-700 h-full ">
+    <div className="font-sans flex flex-col   bg-gradient-to-br from-blue-800 to-red-700 h-full ">
       <nav className="w-full font-extrabold p-[2%]  text-3xl bg-blue-900 text-yellow-500"> Il tuo database di STAR WARS</nav>
       
-        
+      <div className="flex  items-start ">
+      <img className=" h-[25%]  basis-[2%] rotate-3 mt-[5%] ml-[5%]" src="/grogu.jpg" alt="Grogu"></img>
+          <div className="basis-[40%] text-center mt-5">
           {categories.map(el=><li className="m-4" key={el}><Link className=" font-bold text-3xl m-4 hover:text-yellow-600" to={"/categories/"+ el} >{el.toUpperCase()}</Link></li>)}
-        {/* {people.map((el,i)=><div className=" font-bold text-3xl m-4 hover:text-yellow-600" key={i}> <Link to={'/people/'+ (i+1).toString()}>{el.name}-{el.gender.charAt(0).toUpperCase()}</Link> </div>)} */}
+          </div>
+          <img className=" size-[45%]  basis-[2%] -rotate-3 mt-[5%]"  src="/troop.jpg" alt="Troopers in una foresta"></img>
+        </div> 
         
-
        
     </div>
   );

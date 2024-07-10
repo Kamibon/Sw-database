@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData } from '@remix-run/react';
 
 
 
@@ -27,15 +27,13 @@ export default function Details() {
      {/* {Object.keys(dati).map((el, i)=><li key={i}>{el}:</li>)} */}
      
      <div className=' font-bold text-3xl'>Nome : {dati.name}</div>
-     {/* <div className=' font-bold text-3xl'>Genere : {dati.gender}</div>
-     <div className=' font-bold text-3xl'>Anno di nascita : {dati.birth_year}</div>
-     <div className=' font-bold text-3xl'>Occhi : {dati.eye_color}</div>
-     <div className=' font-bold text-3xl'>{dati.gender === 'male'? 'Nato' : 'Nata'} a : {dati.homeworld}</div>
-     <div className=' font-bold text-3xl'>Capelli : {dati.hair_color}</div> */}
+      <div className=' font-bold text-3xl'>Diametro : {dati.diameter}</div>
+     <div className=' font-bold text-3xl'>Clima : {dati.climate}</div>
+     <div className=' font-bold text-3xl'>Popolazione : {dati.population}</div>
      
      
      
-    
+     <Link className=" m-auto font-bold text-4xl hover:text-yellow-500" to='/categories/planets'> Torna indietro</Link>
     </div>
   )
 }

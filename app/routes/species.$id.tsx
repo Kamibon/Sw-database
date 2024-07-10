@@ -1,6 +1,5 @@
 import { LoaderFunctionArgs } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
-import { person } from 'constants/types';
+import { Link, useLoaderData } from '@remix-run/react';
 
 
 export async function loader({
@@ -15,7 +14,7 @@ export async function loader({
 
 export default function Details() {
 
-    const dati = useLoaderData<person>()
+    const dati = useLoaderData<typeof loader>()
     
 
   return (
@@ -27,13 +26,13 @@ export default function Details() {
      {/* {Object.keys(dati).map((el, i)=><li key={i}>{el}:</li>)} */}
      
      <div className=' font-bold text-3xl'>Nome : {dati.name}</div>
-     {/* <div className=' font-bold text-3xl'>Genere : {dati.gender}</div>
-     <div className=' font-bold text-3xl'>Anno di nascita : {dati.birth_year}</div>
-     <div className=' font-bold text-3xl'>Occhi : {dati.eye_color}</div>
-     <div className=' font-bold text-3xl'>{dati.gender === 'male'? 'Nato' : 'Nata'} a : {dati.homeworld}</div>
-     <div className=' font-bold text-3xl'>Capelli : {dati.hair_color}</div> */}
+      <div className=' font-bold text-3xl'>Classificazione : {dati.classification}</div>
+     <div className=' font-bold text-3xl'>Desginazione : {dati.designation}</div>
+     <div className=' font-bold text-3xl'>Altezza media : {dati.average_height}</div>
+     <div className=' font-bold text-3xl'>Vita media:{dati.average_lifespan}</div>
+     <div className=' font-bold text-3xl'>Linguaggio : {dati.language}</div> 
      
-     
+     <Link className=" m-auto font-bold text-4xl hover:text-yellow-500" to='/categories/species'> Torna indietro</Link>
      
     
     </div>
