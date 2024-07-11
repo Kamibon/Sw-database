@@ -1,5 +1,7 @@
 import { LoaderFunctionArgs } from '@remix-run/node';
-import { Link, useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData,isRouteErrorResponse,
+ 
+  useRouteError } from '@remix-run/react';
 
 
 
@@ -9,6 +11,7 @@ export async function loader({
     const url = 'https://swapi.dev/api/'
     const res = await fetch(url+'people/'+params.id)
     const data = await res.json()
+    if(!data) throw new Response(" Sei sul pianeta sbagliato", { status: 404 });
     data.planetId = data.homeworld[data.homeworld.length - 2]
    // const planet = await fetch(data.homeworld);
    /*  data.planet = json({planet})*/
@@ -16,6 +19,29 @@ export async function loader({
     return data
   }
 
+  export  function ErrorBoundary() {
+    const error = useRouteError();
+
+    if (isRouteErrorResponse(error)) {
+        return (
+          <div className=" text-yellow-500 font-extrabold">
+            <h1>
+              {error.status} {error.statusText} Pocco
+            </h1>
+            <p>{error.data}</p>
+          </div>
+        );
+      } else if (error instanceof Error) {
+        return (
+          <div className="bg-gradient-to-br text-5xl from-blue-800 h-full to-red-700 text-yellow-500 font-extrabold">
+            
+            Sembra che tu ti sia perso fra le stelle <Link className=' hover:text-red-600' to={'/'}>Torna al pianeta natale</Link>
+          </div>
+        );
+      } else {
+        return <h1>Unknown Error</h1>;
+      }
+    }
 
 export default function Details() {
 
