@@ -17,7 +17,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div className="font-sans flex flex-col   bg-gradient-to-br from-blue-800 to-red-700 h-full ">
+          <nav className="w-full text-center font-extrabold p-[2%]  text-3xl bg-blue-900 text-yellow-500">
+            {" "}
+            Il tuo super database di STAR WARS
+          </nav>
+          {children}
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
